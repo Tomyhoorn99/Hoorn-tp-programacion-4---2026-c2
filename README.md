@@ -1,59 +1,98 @@
-# Cine
+﻿# Sistema de Cine — Programación IV TP1
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+Aplicación web completa para la gestión y comercialización de un cine.
 
-## Development server
+## Tecnologías
 
-To start a local development server, run:
+- **Angular 22**: Framework principal con standalone components
+- **Supabase**: Backend (Auth, Database, Storage, Realtime)
+- **TypeScript 6**: Lenguaje de desarrollo
+- **Vitest**: Testing framework
+- **Node 24**: Runtime environment
 
-```bash
-ng serve
+## Estructura del Proyecto
+
+```
+src/app/
+├── core/              # Funcionalidades centrales de la aplicación
+│   ├── guards/        # Guards de routing para protección de rutas
+│   ├── interceptors/  # HTTP interceptors
+│   ├── services/      # Servicios compartidos y lógica de negocio central
+│   └── models/        # Interfaces, tipos y modelos de datos
+│
+├── shared/            # Componentes y utilidades reutilizables
+│   ├── components/    # Componentes compartidos entre features
+│   ├── pipes/         # Pipes personalizadas
+│   └── directives/    # Directivas personalizadas
+│
+├── layout/            # Componentes de estructura visual
+│   ├── components/    # Header, footer, navbar, sidebar
+│   └── pages/         # Layouts completos (main layout, auth layout, etc.)
+│
+└── features/          # Módulos de funcionalidad del negocio
+    ├── auth/          # Autenticación y autorización
+    ├── peliculas/     # Gestión de películas
+    ├── cartelera/     # Cartelera del cine
+    ├── salas/         # Gestión de salas
+    ├── funciones/     # Funciones y horarios
+    ├── compras/       # Proceso de compra de entradas
+    ├── candy-bar/     # Productos del candy bar
+    ├── resenas/       # Reseñas de usuarios
+    ├── fidelizacion/  # Programa de fidelización
+    ├── proximamente/  # Próximos estrenos
+    ├── empleado/      # Panel de empleado
+    └── admin/         # Panel de administrador
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Instalación
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Desarrollo
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+La aplicación se ejecutará en `http://localhost:4200/`
 
-To build the project run:
+## Build
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos de producción se generarán en el directorio `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Tests
 
 ```bash
-ng test
+npm test
 ```
 
-## Running end-to-end tests
+## Criterios de Desarrollo
 
-For end-to-end (e2e) testing, run:
+- Priorizar código simple, claro y mantenible
+- Preferir soluciones nativas de Angular y Supabase antes de agregar librerías
+- Evitar sobreingeniería y complejidad innecesaria
+- Separar responsabilidades: componentes para UI, servicios para lógica
+- Crear componentes reutilizables cuando exista una necesidad real
+- Mantener nombres y estructura consistentes con el proyecto
 
-```bash
-ng e2e
+## Configuración de Supabase
+
+Antes de ejecutar el proyecto, configurar las credenciales de Supabase en:
+- `src/environments/environment.ts` (desarrollo)
+- `src/environments/environment.prod.ts` (producción)
+
+```typescript
+export const environment = {
+  production: false,
+  supabase: {
+    url: 'TU_SUPABASE_URL',
+    anonKey: 'TU_SUPABASE_ANON_KEY'
+  }
+};
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
