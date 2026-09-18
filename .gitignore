@@ -42,3 +42,10 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+
+# Documentación de trabajo local
+CONTEXTO_PROYECTO.md
+MODELO_DATOS.md
+REQUERIMIENTOS.md
+ARQUITECTURA.md
